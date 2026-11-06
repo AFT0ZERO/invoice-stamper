@@ -1,0 +1,23 @@
+{
+  "name": "invoice-stamper",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0",
+    "typescript": "^5.7.0"
+  },
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,green \"npm run dev -w @stamper/api\" \"npm run dev -w @stamper/web\"",
+    "build": "npm run build -w @stamper/web",
+    "typecheck": "npm run typecheck -w @stamper/api && npm run typecheck -w @stamper/web",
+    "deploy:api": "npm run deploy -w @stamper/api",
+    "deploy:web": "npm run build -w @stamper/web"
+  }
+}
