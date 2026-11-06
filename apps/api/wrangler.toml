@@ -15,8 +15,9 @@ fallthrough = true
 [[kv_namespaces]]
 binding = "MASTER"
 
+# ...
 [vars]
-# Comma-separated web origins allowed to call this API ("*" = any).
-# For production set this to your Pages URL, e.g. "https://invoice-stamper.pages.dev"
-ALLOWED_ORIGINS = "*"
+ALLOWED_ORIGINS = "https://invoice-stamper.pages.dev/"
 MAX_UPLOAD_MB = "100"
+# ...
+
