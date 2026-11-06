@@ -2,3 +2,21 @@ name = "invoice-stamper-api"
 main = "src/index.ts"
 compatibility_date = "2026-01-01"
 compatibility_flags = ["nodejs_compat"]
+
+# Bundle the Arabic font as raw bytes
+[[rules]]
+type = "Data"
+globs = ["**/*.ttf"]
+fallthrough = true
+
+# Stores the parsed master Excel file. `wrangler deploy` creates the namespace automatically
+# the first time; `wrangler dev` uses a local simulation. To use an existing namespace instead,
+# add:  id = "<namespace id>"
+[[kv_namespaces]]
+binding = "MASTER"
+
+[vars]
+# Comma-separated web origins allowed to call this API ("*" = any).
+# For production set this to your Pages URL, e.g. "https://invoice-stamper.pages.dev"
+ALLOWED_ORIGINS = "*"
+MAX_UPLOAD_MB = "100"

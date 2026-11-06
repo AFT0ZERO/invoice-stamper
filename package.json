@@ -18,6 +18,6 @@
     "build": "npm run build -w @stamper/web",
     "typecheck": "npm run typecheck -w @stamper/api && npm run typecheck -w @stamper/web",
     "deploy:api": "npm run deploy -w @stamper/api",
-    "deploy:web": "npm run build -w @stamper/web"
+    "deploy:web": "npm run build -w @stamper/web && wrangler pages deploy apps/web/dist --project-name invoice-stamper"
   }
 }
